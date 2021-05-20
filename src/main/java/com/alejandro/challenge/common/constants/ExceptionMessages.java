@@ -6,6 +6,7 @@ public class ExceptionMessages {
 	
 	public static final String INSUFFICIENT_FUNDS  = "insufficient_funds";
 	public static final String LIMIT_EXCEEDED = "limit_exceeded";
+	public static final String AMMOUNT_NOT_VALID  = "ammount_not_valid";
 	public static final String ACCOUNT_NOT_FOUNF = "account_not_found";
 	public static final String JSON_ERROR = "json_error";
 

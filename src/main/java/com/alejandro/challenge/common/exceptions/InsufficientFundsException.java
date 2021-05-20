@@ -2,9 +2,9 @@ package com.alejandro.challenge.common.exceptions;
 
 import com.alejandro.challenge.common.constants.ExceptionMessages;
 
-public class InsufficientFunds extends RuntimeException {
+public class InsufficientFundsException extends RuntimeException {
 
-	public InsufficientFunds() {
+	public InsufficientFundsException() {
 		super(ExceptionMessages.INSUFFICIENT_FUNDS);
 	}
 	

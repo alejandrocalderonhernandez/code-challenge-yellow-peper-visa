@@ -2,9 +2,12 @@ package com.alejandro.challenge.model.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +25,7 @@ public class TransferEntity implements Serializable {
 	private Long id;
 	@Column(nullable = false)
 	private BigDecimal amount;
+	@Enumerated(value = EnumType.STRING)
 	@Column(nullable = false)
 	private Currency currency;
 	@JsonProperty(value = "origin_account")
@@ -32,8 +36,18 @@ public class TransferEntity implements Serializable {
 	private String DestinationAccount;
 	@Column(nullable = false)
 	private String description;
+	@Column(nullable = false)
+	private LocalDateTime date;
 	
 	public TransferEntity() {}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public BigDecimal getAmount() {
 		return amount;
@@ -74,7 +88,16 @@ public class TransferEntity implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
+
 	private static final long serialVersionUID = 1L;
 
 }
