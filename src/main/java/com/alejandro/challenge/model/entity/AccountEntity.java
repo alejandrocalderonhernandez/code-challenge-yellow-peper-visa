@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.alejandro.challenge.util.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -49,6 +50,11 @@ public class AccountEntity implements Serializable{
 		this.attempts = attempts;
 	}
 	
+	@Override
+	public String toString() {
+		return JsonUtil.toStringJson(this);
+	}
+
 	private static final long serialVersionUID = 1477745906775321L;
 	
 }

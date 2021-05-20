@@ -3,6 +3,7 @@ package com.alejandro.challenge.model.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.alejandro.challenge.util.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AccountDTO implements Serializable{
@@ -29,6 +30,13 @@ public class AccountDTO implements Serializable{
 	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
+
+	
+	@Override
+	public String toString() {
+		return JsonUtil.toStringJson(this);
+	}
+
 
 	private static final long serialVersionUID = 23245732247975431L;
 	

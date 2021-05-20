@@ -3,13 +3,13 @@ package com.alejandro.challenge.model.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import com.alejandro.challenge.business.enums.Currency;
+import com.alejandro.challenge.util.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TransferDTO implements Serializable {
 
 	private BigDecimal amount;
-	private Currency currency;
+	private String currency;
 	@JsonProperty(value = "origin_account")
 	private String OriginAccount;
 	@JsonProperty(value = "destination_account")
@@ -26,11 +26,11 @@ public class TransferDTO implements Serializable {
 		this.amount = amount;
 	}
 	
-	public Currency getCurrency() {
+	public String getCurrency() {
 		return currency;
 	}
 	
-	public void setCurrency(Currency currency) {
+	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 	
@@ -58,6 +58,11 @@ public class TransferDTO implements Serializable {
 		this.description = description;
 	}
 	
+	@Override
+	public String toString() {
+		return JsonUtil.toStringJson(this);
+	}
+
 	private static final long serialVersionUID = -1870297284421707049L;
 	
 }

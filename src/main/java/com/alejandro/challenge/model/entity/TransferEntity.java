@@ -6,14 +6,13 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.alejandro.challenge.business.enums.Currency;
+
+import com.alejandro.challenge.util.JsonUtil;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -25,9 +24,9 @@ public class TransferEntity implements Serializable {
 	private Long id;
 	@Column(nullable = false)
 	private BigDecimal amount;
-	@Enumerated(value = EnumType.STRING)
+	//@Enumerated(value = EnumType.STRING)
 	@Column(nullable = false)
-	private Currency currency;
+	private String currency;
 	@JsonProperty(value = "origin_account")
 	@Column(nullable = false, name = "origin_account")
 	private String OriginAccount;
@@ -57,11 +56,11 @@ public class TransferEntity implements Serializable {
 		this.amount = amount;
 	}
 	
-	public Currency getCurrency() {
+	public String getCurrency() {
 		return currency;
 	}
 	
-	public void setCurrency(Currency currency) {
+	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
 	
@@ -97,6 +96,10 @@ public class TransferEntity implements Serializable {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return JsonUtil.toStringJson(this);
+	}
 
 	private static final long serialVersionUID = 1L;
 
