@@ -1,0 +1,431 @@
+2021-05-20 01:52:53.603  INFO 18676 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 18676 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-20 01:52:53.605  INFO 18676 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-20 01:52:54.058  INFO 18676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-20 01:52:54.088  INFO 18676 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2021-05-20 01:52:54.328  INFO 18676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-20 01:52:54.333  INFO 18676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-20 01:52:54.333  INFO 18676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-20 01:52:54.393  INFO 18676 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-20 01:52:54.393  INFO 18676 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 760 ms
+2021-05-20 01:52:54.423  INFO 18676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-20 01:52:54.513  INFO 18676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-20 01:52:54.517  INFO 18676 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-20 01:52:54.596  INFO 18676 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-20 01:52:54.618  INFO 18676 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-20 01:52:54.679  INFO 18676 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-20 01:52:54.726  INFO 18676 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-20 01:52:54.983 DEBUG 18676 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:52:54.984 DEBUG 18676 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:52:54.985 DEBUG 18676 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:52:54.986 DEBUG 18676 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-20 01:52:54.987 DEBUG 18676 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-20 01:52:54.991 DEBUG 18676 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency integer not null, description varchar(255) not null, primary key (id))
+2021-05-20 01:52:54.993  INFO 18676 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-20 01:52:54.997  INFO 18676 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:52:55.014  WARN 18676 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+2021-05-20 01:52:55.015  INFO 18676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-20 01:52:55.016  INFO 18676 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-20 01:52:55.018  INFO 18676 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-20 01:52:55.025  INFO 18676 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-20 01:52:55.033 ERROR 18676 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:610) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.alejandro.challenge.CodeChallengeApplication.main(CodeChallengeApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:622) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.runScripts(DataSourceInitializer.java:202) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.initSchema(DataSourceInitializer.java:119) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:91) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:38) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.publishEventIfRequired(DataSourceInitializedPublisher.java:111) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.postProcessAfterInitialization(DataSourceInitializedPublisher.java:102) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 16 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:243) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:1053) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.read(Parser.java:4995) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readIfMore(Parser.java:1462) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1878) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsert(Parser.java:1749) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:954) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:819) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:601) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	... 32 common frames omitted
+
+2021-05-20 01:54:03.583  INFO 18797 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 18797 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-20 01:54:03.584  INFO 18797 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-20 01:54:03.927  INFO 18797 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-20 01:54:03.956  INFO 18797 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2021-05-20 01:54:04.246  INFO 18797 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-20 01:54:04.251  INFO 18797 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-20 01:54:04.252  INFO 18797 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-20 01:54:04.314  INFO 18797 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-20 01:54:04.314  INFO 18797 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 706 ms
+2021-05-20 01:54:04.343  INFO 18797 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-20 01:54:04.432  INFO 18797 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-20 01:54:04.436  INFO 18797 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-20 01:54:04.516  INFO 18797 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-20 01:54:04.538  INFO 18797 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-20 01:54:04.600  INFO 18797 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-20 01:54:04.645  INFO 18797 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-20 01:54:04.895 DEBUG 18797 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:54:04.896 DEBUG 18797 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:54:04.896 DEBUG 18797 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:54:04.897 DEBUG 18797 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-20 01:54:04.898 DEBUG 18797 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-20 01:54:04.902 DEBUG 18797 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency integer not null, description varchar(255) not null, primary key (id))
+2021-05-20 01:54:04.903  INFO 18797 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-20 01:54:04.907  INFO 18797 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:54:04.924  WARN 18797 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+2021-05-20 01:54:04.925  INFO 18797 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-20 01:54:04.926  INFO 18797 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-20 01:54:04.928  INFO 18797 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-20 01:54:04.934  INFO 18797 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-20 01:54:04.942 ERROR 18797 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:610) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.alejandro.challenge.CodeChallengeApplication.main(CodeChallengeApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:622) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.runScripts(DataSourceInitializer.java:202) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.initSchema(DataSourceInitializer.java:119) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:91) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:38) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.publishEventIfRequired(DataSourceInitializedPublisher.java:111) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.postProcessAfterInitialization(DataSourceInitializedPublisher.java:102) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 16 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:243) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:1053) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.read(Parser.java:4995) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readIfMore(Parser.java:1462) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1878) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsert(Parser.java:1749) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:954) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:819) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:601) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	... 32 common frames omitted
+
+2021-05-20 01:55:18.721  INFO 18873 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 18873 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-20 01:55:18.722  INFO 18873 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-20 01:55:19.074  INFO 18873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-20 01:55:19.102  INFO 18873 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+2021-05-20 01:55:19.373  INFO 18873 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-20 01:55:19.379  INFO 18873 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-20 01:55:19.379  INFO 18873 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-20 01:55:19.426  INFO 18873 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-20 01:55:19.426  INFO 18873 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 678 ms
+2021-05-20 01:55:19.452  INFO 18873 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-20 01:55:19.532  INFO 18873 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-20 01:55:19.536  INFO 18873 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-20 01:55:19.611  INFO 18873 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-20 01:55:19.631  INFO 18873 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-20 01:55:19.687  INFO 18873 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-20 01:55:19.735  INFO 18873 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-20 01:55:19.972 DEBUG 18873 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:55:19.973 DEBUG 18873 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:55:19.974 DEBUG 18873 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:55:19.975 DEBUG 18873 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-20 01:55:19.976 DEBUG 18873 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-20 01:55:19.979 DEBUG 18873 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency integer not null, description varchar(255) not null, primary key (id))
+2021-05-20 01:55:19.981  INFO 18873 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-20 01:55:19.985  INFO 18873 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:55:20.001  WARN 18873 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+2021-05-20 01:55:20.001  INFO 18873 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-20 01:55:20.003  INFO 18873 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-20 01:55:20.004  INFO 18873 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-20 01:55:20.010  INFO 18873 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-20 01:55:20.018 ERROR 18873 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:610) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.alejandro.challenge.CodeChallengeApplication.main(CodeChallengeApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:622) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.runScripts(DataSourceInitializer.java:202) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.initSchema(DataSourceInitializer.java:119) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:91) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:38) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.publishEventIfRequired(DataSourceInitializedPublisher.java:111) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.postProcessAfterInitialization(DataSourceInitializedPublisher.java:102) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 16 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:243) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:1053) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.read(Parser.java:4995) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readIfMore(Parser.java:1462) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1878) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsert(Parser.java:1749) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:954) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:819) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:601) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	... 32 common frames omitted
+
+2021-05-20 01:55:32.229  INFO 18925 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 18925 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-20 01:55:32.230  INFO 18925 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-20 01:55:32.502  INFO 18925 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-20 01:55:32.526  INFO 18925 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2021-05-20 01:55:32.753  INFO 18925 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-20 01:55:32.758  INFO 18925 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-20 01:55:32.758  INFO 18925 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-20 01:55:32.800  INFO 18925 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-20 01:55:32.800  INFO 18925 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 547 ms
+2021-05-20 01:55:32.823  INFO 18925 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-20 01:55:32.899  INFO 18925 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-20 01:55:32.902  INFO 18925 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-20 01:55:32.975  INFO 18925 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-20 01:55:32.995  INFO 18925 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-20 01:55:33.049  INFO 18925 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-20 01:55:33.098  INFO 18925 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-20 01:55:33.325 DEBUG 18925 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:55:33.325 DEBUG 18925 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:55:33.325 DEBUG 18925 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:55:33.326 DEBUG 18925 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-20 01:55:33.327 DEBUG 18925 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-20 01:55:33.331 DEBUG 18925 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency integer not null, description varchar(255) not null, primary key (id))
+2021-05-20 01:55:33.332  INFO 18925 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-20 01:55:33.336  INFO 18925 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:55:33.350  WARN 18925 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+2021-05-20 01:55:33.351  INFO 18925 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-20 01:55:33.352  INFO 18925 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-20 01:55:33.353  INFO 18925 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-05-20 01:55:33.359  INFO 18925 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-20 01:55:33.366 ERROR 18925 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Initialization of bean failed; nested exception is org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:610) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:782) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:774) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1340) ~[spring-boot-2.4.5.jar:2.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.5.jar:2.4.5]
+	at com.alejandro.challenge.CodeChallengeApplication.main(CodeChallengeApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.jdbc.datasource.init.ScriptStatementFailedException: Failed to execute SQL script statement #1 of URL [file:/home/alejandro/Projects/Spring/code-challenge/target/classes/data.sql]: INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0); nested exception is org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:622) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:49) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.runScripts(DataSourceInitializer.java:202) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializer.initSchema(DataSourceInitializer.java:119) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:91) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker.onApplicationEvent(DataSourceInitializerInvoker.java:38) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.6.jar:5.3.6]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.publishEventIfRequired(DataSourceInitializedPublisher.java:111) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.boot.autoconfigure.orm.jpa.DataSourceInitializedPublisher.postProcessAfterInitialization(DataSourceInitializedPublisher.java:102) ~[spring-boot-autoconfigure-2.4.5.jar:2.4.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790) ~[spring-beans-5.3.6.jar:5.3.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.6.jar:5.3.6]
+	... 16 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO ACCOUNT (ACCOUNT, ACCOUNT_BALANCE, ATTEMPTS) VALUES ('80907651' 50000.50[*], 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0)"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO account (account, account_balance, attempts) VALUES ('80907651' 50000.50, 0), ('20983451' 40000.23, 0), ('98765432' 500.56, 0), ('12345678' 100.52, 0) [42001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:243) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:1053) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.read(Parser.java:4995) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readIfMore(Parser.java:1462) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1878) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseInsert(Parser.java:1749) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:954) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:819) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-3.4.5.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-3.4.5.jar:na]
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:601) ~[spring-jdbc-5.3.6.jar:5.3.6]
+	... 32 common frames omitted
+
+2021-05-20 01:56:05.735  INFO 18990 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 18990 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-20 01:56:05.737  INFO 18990 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-20 01:56:06.031  INFO 18990 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-20 01:56:06.058  INFO 18990 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2021-05-20 01:56:06.323  INFO 18990 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-20 01:56:06.329  INFO 18990 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-20 01:56:06.329  INFO 18990 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-20 01:56:06.380  INFO 18990 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-20 01:56:06.380  INFO 18990 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 621 ms
+2021-05-20 01:56:06.409  INFO 18990 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-20 01:56:06.508  INFO 18990 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-20 01:56:06.512  INFO 18990 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-20 01:56:06.593  INFO 18990 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-20 01:56:06.618  INFO 18990 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-20 01:56:06.681  INFO 18990 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-20 01:56:06.741  INFO 18990 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-20 01:56:07.008 DEBUG 18990 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:56:07.009 DEBUG 18990 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:56:07.009 DEBUG 18990 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:56:07.010 DEBUG 18990 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-20 01:56:07.012 DEBUG 18990 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-20 01:56:07.015 DEBUG 18990 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency integer not null, description varchar(255) not null, primary key (id))
+2021-05-20 01:56:07.017  INFO 18990 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-20 01:56:07.021  INFO 18990 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:56:07.059  WARN 18990 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-20 01:56:07.123  INFO 18990 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-20 01:56:07.326  INFO 18990 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-20 01:56:07.345  INFO 18990 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-20 01:56:07.352  INFO 18990 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 1.811 seconds (JVM running for 2.176)
+2021-05-20 01:57:41.355  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-20 01:57:41.370  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-20 01:57:41.372  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-20 01:57:41.372  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-20 01:57:41.372  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-20 01:57:41.373 DEBUG 18990 --- [RMI TCP Connection(11)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-20 01:57:41.375 DEBUG 18990 --- [RMI TCP Connection(11)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-20 01:57:41.375 DEBUG 18990 --- [RMI TCP Connection(11)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-20 01:57:41.377  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-20 01:57:41.380  INFO 18990 --- [RMI TCP Connection(11)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
