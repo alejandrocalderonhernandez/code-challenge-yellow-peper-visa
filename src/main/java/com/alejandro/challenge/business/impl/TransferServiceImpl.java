@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +31,9 @@ import com.alejandro.challenge.util.JsonUtil;
 @Service
 @Transactional
 public class TransferServiceImpl implements TransferService {
+
+	
+	private static final Logger log = LoggerFactory.getLogger(TransferServiceImpl.class);
 
 	private TransferRepository transferRepository;
 	private AccountRepository accountRepository;
@@ -93,6 +98,7 @@ public class TransferServiceImpl implements TransferService {
 		TransferEntity toSave = (TransferEntity) JsonUtil.bodyMapper(transfer, TransferEntity.class);
 		toSave.setDate(LocalDateTime.now());
 		this.transferRepository.save(toSave);
+		log.info("Transaction saved", toSave);
 	}
 	
 	private BigDecimal getTax(BigDecimal ammountToTransfer) {

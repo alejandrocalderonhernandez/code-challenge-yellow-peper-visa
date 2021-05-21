@@ -1,8 +1,5 @@
 package com.alejandro.challenge.rest.client;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +15,13 @@ public class CurrencyClient {
 	private String apiKey;
 	
 	@Value("${exchangeratesapi.base-url}")
-	private String url;
+	private String baseUrl;
 	
 	@Autowired
 	private RestTemplate restTemplate;
 	
 	public ResponseEntity<CurrencyDTO> getCurrency() {
-		Map<String, Object> params = new HashMap<>();
-		params.put("access_key", apiKey);
-	   return this.restTemplate.getForEntity(url, CurrencyDTO.class, params);
+		String uri = baseUrl + apiKey;
+	   return this.restTemplate.getForEntity(uri, CurrencyDTO.class);
 	}
 }

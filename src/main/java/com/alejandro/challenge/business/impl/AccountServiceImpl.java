@@ -3,6 +3,8 @@ package com.alejandro.challenge.business.impl;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,9 @@ import com.alejandro.challenge.util.JsonUtil;
 @Transactional
 public class AccountServiceImpl implements AccountService {
 
+	
+	private static final Logger log = LoggerFactory.getLogger(AccountServiceImpl.class);
+
 	@Autowired
 	private AccountRepository repository;
 	
@@ -29,6 +34,7 @@ public class AccountServiceImpl implements AccountService {
 		AccountEntity toSave = (AccountEntity) JsonUtil.bodyMapper(acount, AccountEntity.class);
 		toSave.setAttempts(NumberConstants.ZERO);
 		this.repository.save(toSave);
+		log.info("Account saved", toSave);
 		return new AccountResponseModel(StatusTypes.OK, new ArrayList<>(), acount.getBalance());
 	}
 
