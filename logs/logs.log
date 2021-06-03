@@ -3261,3 +3261,417 @@ Caused by: java.io.FileNotFoundException: Could not open ServletContext resource
 2021-05-21 09:54:04.088 DEBUG 9404 --- [RMI TCP Connection(9)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
 2021-05-21 09:54:04.089  INFO 9404 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-05-21 09:54:04.090  INFO 9404 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-21 15:38:51.848  INFO 3247 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 3247 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-21 15:38:51.850  INFO 3247 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-21 15:38:52.440  INFO 3247 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-21 15:38:52.471  INFO 3247 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+2021-05-21 15:38:52.799  INFO 3247 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-21 15:38:52.805  INFO 3247 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-21 15:38:52.806  INFO 3247 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-21 15:38:52.853  INFO 3247 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-21 15:38:52.853  INFO 3247 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 978 ms
+2021-05-21 15:38:52.947  INFO 3247 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-21 15:38:53.048  INFO 3247 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-21 15:38:53.084  INFO 3247 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-21 15:38:53.125  INFO 3247 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-21 15:38:53.212  INFO 3247 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-21 15:38:53.271  INFO 3247 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-21 15:38:53.576 DEBUG 3247 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:38:53.577 DEBUG 3247 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:38:53.577 DEBUG 3247 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:38:53.579 DEBUG 3247 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-21 15:38:53.580 DEBUG 3247 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-21 15:38:53.583 DEBUG 3247 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-05-21 15:38:53.585  INFO 3247 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-21 15:38:53.589  INFO 3247 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:38:53.996  WARN 3247 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-21 15:38:54.136  INFO 3247 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:38:54.500  INFO 3247 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-21 15:38:54.548  INFO 3247 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-21 15:38:54.731  INFO 3247 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 3.137 seconds (JVM running for 3.742)
+2021-05-21 15:40:20.338  INFO 3247 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-21 15:40:20.338  INFO 3247 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-21 15:40:20.339  INFO 3247 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-21 15:40:20.402 DEBUG 3247 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:40:20.405 TRACE 3247 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:40:20.413  INFO 3247 --- [http-nio-8080-exec-1] c.a.c.business.impl.AccountServiceImpl   : Account saved
+2021-05-21 15:40:20.417 DEBUG 3247 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into account (attempts, account_balance, account) values (?, ?, ?)
+2021-05-21 15:40:20.417 TRACE 3247 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:40:20.417 TRACE 3247 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [5000.00]
+2021-05-21 15:40:20.417 TRACE 3247 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:40:26.728 DEBUG 3247 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:40:26.729 TRACE 3247 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:40:50.364 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:40:50.365 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:40:50.365 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:40:50.365 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:40:50.734 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:40:50.736  INFO 3247 --- [http-nio-8080-exec-4] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:40:50.736 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:40:50.736 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:40:50.737 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:40:50.737 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [240.41]
+2021-05-21 15:40:50.737 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [USD]
+2021-05-21 15:40:50.737 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:40:50.732409930]
+2021-05-21 15:40:50.739 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:40:50.740 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-05-21 15:40:50.740 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:40:50.741 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:40:50.741 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [697.83]
+2021-05-21 15:40:50.741 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:40:50.742 DEBUG 3247 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:40:50.742 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-05-21 15:40:50.742 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [4763.27599999999999780986303932195369270630180835723876953125]
+2021-05-21 15:40:50.742 TRACE 3247 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:41:08.957 DEBUG 3247 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:41:08.957 TRACE 3247 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:41:28.831 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:41:28.832 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:41:28.832 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:41:28.833 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:41:29.226 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:41:29.227  INFO 3247 --- [http-nio-8080-exec-6] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:41:29.227 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:41:29.228 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:41:29.228 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:41:29.228 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [240.41]
+2021-05-21 15:41:29.228 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:41:29.228 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:41:29.226075270]
+2021-05-21 15:41:29.229 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:41:29.229 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [2]
+2021-05-21 15:41:29.229 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:41:29.230 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:41:29.230 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [707.72]
+2021-05-21 15:41:29.230 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:41:29.231 DEBUG 3247 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:41:29.231 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-05-21 15:41:29.231 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [4748.445]
+2021-05-21 15:41:29.231 TRACE 3247 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:41:47.666 DEBUG 3247 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:41:47.666 TRACE 3247 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:42:07.838 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:42:07.838 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:42:07.839 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:42:07.839 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:42:08.134 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:42:08.135  INFO 3247 --- [http-nio-8080-exec-8] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:42:08.136 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:42:08.136 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:42:08.136 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:42:08.136 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24.41]
+2021-05-21 15:42:08.136 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:42:08.137 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:42:08.134296965]
+2021-05-21 15:42:08.137 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:42:08.137 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [3]
+2021-05-21 15:42:08.138 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:42:08.138 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:42:08.138 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [708.72]
+2021-05-21 15:42:08.138 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:42:08.139 DEBUG 3247 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:42:08.139 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
+2021-05-21 15:42:08.139 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [4746.950]
+2021-05-21 15:42:08.139 TRACE 3247 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:42:15.165 DEBUG 3247 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:42:15.165 TRACE 3247 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:42:15.166 DEBUG 3247 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:42:15.167 TRACE 3247 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:42:40.616  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-21 15:42:40.631  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-21 15:42:40.631  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:42:40.634  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:42:40.635  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-21 15:42:40.635 DEBUG 3247 --- [RMI TCP Connection(13)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:42:40.637 DEBUG 3247 --- [RMI TCP Connection(13)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:42:40.637 DEBUG 3247 --- [RMI TCP Connection(13)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:42:40.638  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-21 15:42:40.639  INFO 3247 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-21 15:42:42.138  INFO 3830 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 3830 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-21 15:42:42.139  INFO 3830 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-21 15:42:42.594  INFO 3830 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-21 15:42:42.621  INFO 3830 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2021-05-21 15:42:42.903  INFO 3830 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-21 15:42:42.908  INFO 3830 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-21 15:42:42.909  INFO 3830 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-21 15:42:42.951  INFO 3830 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-21 15:42:42.952  INFO 3830 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 789 ms
+2021-05-21 15:42:43.034  INFO 3830 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-21 15:42:43.116  INFO 3830 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-21 15:42:43.142  INFO 3830 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-21 15:42:43.170  INFO 3830 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-21 15:42:43.236  INFO 3830 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-21 15:42:43.295  INFO 3830 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-21 15:42:43.552 DEBUG 3830 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:42:43.552 DEBUG 3830 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:42:43.553 DEBUG 3830 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:42:43.554 DEBUG 3830 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-21 15:42:43.555 DEBUG 3830 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-21 15:42:43.558 DEBUG 3830 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-05-21 15:42:43.560  INFO 3830 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-21 15:42:43.563  INFO 3830 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:42:43.891  WARN 3830 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-21 15:42:44.008  INFO 3830 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:42:44.300  INFO 3830 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-21 15:42:44.336  INFO 3830 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-21 15:42:44.497  INFO 3830 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.554 seconds (JVM running for 2.979)
+2021-05-21 15:42:59.436  INFO 3830 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-21 15:42:59.436  INFO 3830 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-21 15:42:59.437  INFO 3830 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-21 15:42:59.496 DEBUG 3830 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:42:59.498 TRACE 3830 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:42:59.505  INFO 3830 --- [http-nio-8080-exec-1] c.a.c.business.impl.AccountServiceImpl   : Account saved
+2021-05-21 15:42:59.508 DEBUG 3830 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into account (attempts, account_balance, account) values (?, ?, ?)
+2021-05-21 15:42:59.509 TRACE 3830 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:42:59.509 TRACE 3830 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [5000.00]
+2021-05-21 15:42:59.509 TRACE 3830 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:43:03.395 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:03.395 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:43:03.401 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:03.402 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:12.854 DEBUG 3830 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:12.855 TRACE 3830 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [987625432]
+2021-05-21 15:43:12.855 DEBUG 3830 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:12.855 TRACE 3830 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:17.259 DEBUG 3830 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:17.259 TRACE 3830 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [987625432]
+2021-05-21 15:43:17.260 DEBUG 3830 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:17.260 TRACE 3830 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:22.729 DEBUG 3830 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:22.730 TRACE 3830 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:43:22.731 DEBUG 3830 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:22.732 TRACE 3830 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:31.121 DEBUG 3830 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:31.121 TRACE 3830 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:43:31.122 DEBUG 3830 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:31.122 TRACE 3830 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:39.698 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:39.699 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:43:39.700 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:43:39.700 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:43:39.937 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:43:39.939  INFO 3830 --- [http-nio-8080-exec-2] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:43:39.940 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:43:39.940 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:43:39.940 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:43:39.940 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-05-21 15:43:39.940 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:43:39.940 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:43:39.935833255]
+2021-05-21 15:43:39.943 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:43:39.943 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-05-21 15:43:39.944 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:43:39.944 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:43:39.944 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1487.83]
+2021-05-21 15:43:39.944 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:43:39.945 DEBUG 3830 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:43:39.945 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-05-21 15:43:39.946 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [3815.27599999999998903910114478321702335961163043975830078125]
+2021-05-21 15:43:39.946 TRACE 3830 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:47:01.065  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-21 15:47:01.085  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-21 15:47:01.086  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:47:01.090  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:47:01.090  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-21 15:47:01.090 DEBUG 3830 --- [RMI TCP Connection(15)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:47:01.092 DEBUG 3830 --- [RMI TCP Connection(15)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:47:01.092 DEBUG 3830 --- [RMI TCP Connection(15)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:47:01.093  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-21 15:47:01.094  INFO 3830 --- [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-21 15:47:02.482  INFO 4206 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 4206 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-21 15:47:02.484  INFO 4206 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-21 15:47:02.964  INFO 4206 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-21 15:47:02.991  INFO 4206 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2021-05-21 15:47:03.317  INFO 4206 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-21 15:47:03.323  INFO 4206 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-21 15:47:03.323  INFO 4206 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-21 15:47:03.378  INFO 4206 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-21 15:47:03.379  INFO 4206 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 871 ms
+2021-05-21 15:47:03.469  INFO 4206 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-21 15:47:03.595  INFO 4206 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-21 15:47:03.632  INFO 4206 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-21 15:47:03.656  INFO 4206 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-21 15:47:03.717  INFO 4206 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-21 15:47:03.768  INFO 4206 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-21 15:47:04.049 DEBUG 4206 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:47:04.051 DEBUG 4206 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:47:04.052 DEBUG 4206 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:47:04.054 DEBUG 4206 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-21 15:47:04.056 DEBUG 4206 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-21 15:47:04.060 DEBUG 4206 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-05-21 15:47:04.063  INFO 4206 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-21 15:47:04.069  INFO 4206 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:47:04.501  WARN 4206 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-21 15:47:04.624  INFO 4206 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:47:04.991  INFO 4206 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-21 15:47:05.040  INFO 4206 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-21 15:47:05.204  INFO 4206 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.926 seconds (JVM running for 3.328)
+2021-05-21 15:47:18.060  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-21 15:47:18.085  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-21 15:47:18.086  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:47:18.093  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:47:18.093  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-21 15:47:18.094 DEBUG 4206 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:47:18.096 DEBUG 4206 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:47:18.097 DEBUG 4206 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:47:18.099  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-21 15:47:18.100  INFO 4206 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-21 15:47:19.569  INFO 4825 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 4825 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-21 15:47:19.570  INFO 4825 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-21 15:47:20.054  INFO 4825 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-21 15:47:20.091  INFO 4825 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2021-05-21 15:47:20.417  INFO 4825 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-21 15:47:20.422  INFO 4825 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-21 15:47:20.422  INFO 4825 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-21 15:47:20.473  INFO 4825 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-21 15:47:20.473  INFO 4825 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 879 ms
+2021-05-21 15:47:20.496  INFO 4825 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-21 15:47:20.577  INFO 4825 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-21 15:47:20.581  INFO 4825 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-21 15:47:20.656  INFO 4825 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-21 15:47:20.679  INFO 4825 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-21 15:47:20.735  INFO 4825 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-21 15:47:20.785  INFO 4825 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-21 15:47:21.031 DEBUG 4825 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:47:21.032 DEBUG 4825 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:47:21.032 DEBUG 4825 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:47:21.034 DEBUG 4825 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-21 15:47:21.035 DEBUG 4825 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-21 15:47:21.040 DEBUG 4825 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-05-21 15:47:21.041  INFO 4825 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-21 15:47:21.046  INFO 4825 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:47:21.383  WARN 4825 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-21 15:47:21.498  INFO 4825 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:47:21.773  INFO 4825 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-21 15:47:21.808  INFO 4825 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-21 15:47:21.985  INFO 4825 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.633 seconds (JVM running for 3.037)
+2021-05-21 15:47:55.934  INFO 4825 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-21 15:47:55.935  INFO 4825 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-21 15:47:55.935  INFO 4825 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-05-21 15:47:55.995 DEBUG 4825 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:47:55.998 TRACE 4825 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:47:56.005  INFO 4825 --- [http-nio-8080-exec-4] c.a.c.business.impl.AccountServiceImpl   : Account saved
+2021-05-21 15:47:56.008 DEBUG 4825 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : insert into account (attempts, account_balance, account) values (?, ?, ?)
+2021-05-21 15:47:56.008 TRACE 4825 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:47:56.009 TRACE 4825 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [5000.00]
+2021-05-21 15:47:56.009 TRACE 4825 --- [http-nio-8080-exec-4] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:47:59.452 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:47:59.452 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:47:59.456 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:47:59.456 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:47:59.728 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:47:59.730  INFO 4825 --- [http-nio-8080-exec-8] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:47:59.731 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:47:59.731 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:47:59.731 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:47:59.731 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-05-21 15:47:59.731 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:47:59.731 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:47:59.726802988]
+2021-05-21 15:47:59.732 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:47:59.732 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-05-21 15:47:59.732 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:47:59.733 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:47:59.733 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1487.83]
+2021-05-21 15:47:59.733 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:47:59.734 DEBUG 4825 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:47:59.734 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-05-21 15:47:59.734 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [3815.27599999999998903910114478321702335961163043975830078125]
+2021-05-21 15:47:59.735 TRACE 4825 --- [http-nio-8080-exec-8] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:54:51.364 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:54:51.364 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:54:51.365 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:54:51.365 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:54:51.858 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:54:51.859  INFO 4825 --- [http-nio-8080-exec-3] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:54:51.859 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:54:51.859 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:54:51.858041541]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:54:51.860 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [2]
+2021-05-21 15:54:51.860 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [2474.40]
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:54:51.861 DEBUG 4825 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [2631.39599999999998904687270595559311914257705211639404296875]
+2021-05-21 15:54:51.861 TRACE 4825 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:54:52.678 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:54:52.679 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:54:52.680 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:54:52.680 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:54:52.900 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-05-21 15:54:52.901  INFO 4825 --- [http-nio-8080-exec-5] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-05-21 15:54:52.901 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-05-21 15:54:52.902 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:54:52.902 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [98989898]
+2021-05-21 15:54:52.902 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-05-21 15:54:52.902 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-05-21 15:54:52.902 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-05-21T15:54:52.900162857]
+2021-05-21 15:54:52.903 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-05-21 15:54:52.903 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [3]
+2021-05-21 15:54:52.903 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:54:52.903 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-05-21 15:54:52.904 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [3460.97]
+2021-05-21 15:54:52.904 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-05-21 15:54:52.904 DEBUG 4825 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-05-21 15:54:52.904 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
+2021-05-21 15:54:52.905 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1447.51599999999998904687270595559311914257705211639404296875]
+2021-05-21 15:54:52.905 TRACE 4825 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98989898]
+2021-05-21 15:55:04.710 DEBUG 4825 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:55:04.710 TRACE 4825 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-05-21 15:55:04.711 DEBUG 4825 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-05-21 15:55:04.712 TRACE 4825 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-05-21 15:55:45.259  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-21 15:55:45.279  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-21 15:55:45.280  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:55:45.285  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:55:45.285  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-21 15:55:45.285 DEBUG 4825 --- [RMI TCP Connection(18)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:55:45.287 DEBUG 4825 --- [RMI TCP Connection(18)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:55:45.287 DEBUG 4825 --- [RMI TCP Connection(18)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:55:45.288  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-21 15:55:45.289  INFO 4825 --- [RMI TCP Connection(18)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-05-21 15:55:58.944  INFO 5484 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 15.0.2 on alejandro-IdeaPad with PID 5484 (/home/alejandro/Projects/Spring/code-challenge/target/classes started by alejandro in /home/alejandro/Projects/Spring/code-challenge)
+2021-05-21 15:55:58.946  INFO 5484 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-05-21 15:55:59.465  INFO 5484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-21 15:55:59.492  INFO 5484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2021-05-21 15:55:59.790  INFO 5484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-05-21 15:55:59.797  INFO 5484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-05-21 15:55:59.797  INFO 5484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-05-21 15:55:59.839  INFO 5484 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-05-21 15:55:59.839  INFO 5484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 869 ms
+2021-05-21 15:55:59.870  INFO 5484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-05-21 15:55:59.949  INFO 5484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-05-21 15:55:59.953  INFO 5484 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-05-21 15:56:00.050  INFO 5484 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-21 15:56:00.080  INFO 5484 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-05-21 15:56:00.158  INFO 5484 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-21 15:56:00.251  INFO 5484 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-05-21 15:56:00.533 DEBUG 5484 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:56:00.534 DEBUG 5484 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:56:00.534 DEBUG 5484 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:56:00.535 DEBUG 5484 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-05-21 15:56:00.537 DEBUG 5484 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-05-21 15:56:00.540 DEBUG 5484 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-05-21 15:56:00.542  INFO 5484 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-21 15:56:00.546  INFO 5484 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:56:00.949  WARN 5484 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-21 15:56:01.093  INFO 5484 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:56:01.399  INFO 5484 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-05-21 15:56:01.435  INFO 5484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-05-21 15:56:01.592  INFO 5484 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.847 seconds (JVM running for 3.255)
+2021-05-21 15:56:04.920  INFO 5484 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-21 15:56:04.920  INFO 5484 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-05-21 15:56:04.921  INFO 5484 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-05-21 15:56:05.324  INFO 5484 --- [http-nio-8080-exec-10] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 139 ms
+2021-05-21 15:56:20.125  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-05-21 15:56:20.147  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-05-21 15:56:20.148  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-21 15:56:20.155  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-21 15:56:20.155  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-05-21 15:56:20.156 DEBUG 5484 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-05-21 15:56:20.159 DEBUG 5484 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-05-21 15:56:20.159 DEBUG 5484 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-05-21 15:56:20.162  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-05-21 15:56:20.163  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
