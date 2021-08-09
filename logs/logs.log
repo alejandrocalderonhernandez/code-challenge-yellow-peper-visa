@@ -3675,3 +3675,79 @@ Caused by: java.io.FileNotFoundException: Could not open ServletContext resource
 2021-05-21 15:56:20.159 DEBUG 5484 --- [RMI TCP Connection(2)-127.0.0.1] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
 2021-05-21 15:56:20.162  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-05-21 15:56:20.163  INFO 5484 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-09 10:11:09.320  INFO 10148 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-Lenovo-ThinkBook-14-IML with PID 10148 (/home/alejandro/Projects/other/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/other/code-challenge-yellow-peper-visa)
+2021-08-09 10:11:09.323  INFO 10148 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-09 10:11:10.117  INFO 10148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-09 10:11:10.164  INFO 10148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 2 JPA repository interfaces.
+2021-08-09 10:11:10.520  INFO 10148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-09 10:11:10.525  INFO 10148 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-09 10:11:10.526  INFO 10148 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-09 10:11:10.584  INFO 10148 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-09 10:11:10.584  INFO 10148 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1224 ms
+2021-08-09 10:11:10.621  INFO 10148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-09 10:11:10.702  INFO 10148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-09 10:11:10.707  INFO 10148 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-09 10:11:10.812  INFO 10148 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-09 10:11:10.838  INFO 10148 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-09 10:11:10.896  INFO 10148 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-09 10:11:10.974  INFO 10148 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-09 10:11:11.254 DEBUG 10148 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-09 10:11:11.255 DEBUG 10148 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-09 10:11:11.255 DEBUG 10148 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-09 10:11:11.256 DEBUG 10148 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-09 10:11:11.258 DEBUG 10148 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-09 10:11:11.263 DEBUG 10148 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-09 10:11:11.265  INFO 10148 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-09 10:11:11.271  INFO 10148 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-09 10:11:11.737  WARN 10148 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-09 10:11:11.960  INFO 10148 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-09 10:11:12.356  INFO 10148 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-09 10:11:12.405  INFO 10148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-09 10:11:12.612  INFO 10148 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 3.604 seconds (JVM running for 4.206)
+2021-08-09 10:41:26.959  INFO 10148 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-09 10:41:26.960  INFO 10148 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-09 10:41:26.964  INFO 10148 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-09 10:41:26.965  INFO 10148 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-09 10:41:26.965 DEBUG 10148 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-09 10:41:26.968 DEBUG 10148 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-09 10:41:26.969 DEBUG 10148 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-09 10:41:26.972  INFO 10148 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-09 10:41:26.974  INFO 10148 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-09 10:41:31.817  INFO 11365 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-Lenovo-ThinkBook-14-IML with PID 11365 (/home/alejandro/Projects/other/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/other/code-challenge-yellow-peper-visa)
+2021-08-09 10:41:31.819  INFO 11365 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-09 10:41:32.557  INFO 11365 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-09 10:41:32.601  INFO 11365 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2021-08-09 10:41:32.935  INFO 11365 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-09 10:41:32.940  INFO 11365 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-09 10:41:32.941  INFO 11365 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-09 10:41:32.991  INFO 11365 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-09 10:41:32.991  INFO 11365 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1138 ms
+2021-08-09 10:41:33.025  INFO 11365 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-09 10:41:33.085  INFO 11365 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-09 10:41:33.089  INFO 11365 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-09 10:41:33.179  INFO 11365 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-09 10:41:33.205  INFO 11365 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-09 10:41:33.284  INFO 11365 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-09 10:41:33.341  INFO 11365 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-09 10:41:33.620 DEBUG 11365 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-09 10:41:33.621 DEBUG 11365 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-09 10:41:33.622 DEBUG 11365 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-09 10:41:33.623 DEBUG 11365 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-09 10:41:33.625 DEBUG 11365 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-09 10:41:33.629 DEBUG 11365 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-09 10:41:33.631  INFO 11365 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-09 10:41:33.636  INFO 11365 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-09 10:41:34.123  WARN 11365 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-09 10:41:34.261  INFO 11365 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-09 10:41:34.628  INFO 11365 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-09 10:41:34.674  INFO 11365 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-09 10:41:34.866  INFO 11365 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 3.331 seconds (JVM running for 3.877)
+2021-08-09 10:41:49.815  INFO 11365 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-09 10:41:49.816  INFO 11365 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-09 10:41:49.821  INFO 11365 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-09 10:41:49.821  INFO 11365 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-09 10:41:49.822 DEBUG 11365 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-09 10:41:49.826 DEBUG 11365 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-09 10:41:49.826 DEBUG 11365 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-09 10:41:49.829  INFO 11365 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-09 10:41:49.830  INFO 11365 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

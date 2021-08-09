@@ -7,9 +7,14 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
+import com.alejandro.challenge.business.definition.AccountService;
+import com.alejandro.challenge.model.dto.CurrencyDTO;
+import com.alejandro.challenge.rest.client.CurrencyClient;
+import com.alejandro.challenge.rest.client.CurrencyClientWebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,68 +30,73 @@ import com.alejandro.challenge.model.entity.TransferEntity;
 import com.alejandro.challenge.model.response.TransferResponseModel;
 import com.alejandro.challenge.repository.AccountRepository;
 import com.alejandro.challenge.repository.TransferRepository;
-import com.alejandro.challenge.rest.client.CurrencyClient;
+import com.alejandro.challenge.rest.client.CurrencyClientRestTemplate;
 import com.alejandro.challenge.util.JsonUtil;
 
 @Service
 @Transactional
 public class TransferServiceImpl implements TransferService {
-
 	
 	private static final Logger log = LoggerFactory.getLogger(TransferServiceImpl.class);
 
-	private TransferRepository transferRepository;
-	private AccountRepository accountRepository;
-    private CurrencyClient currencyClient;
+	private final TransferRepository transferRepository;
+	private final AccountRepository accountRepository;
+	@Qualifier(value = "currencyClientRestTemplate")
+    private final CurrencyClientRestTemplate currencyClientRestTemplate;
+	@Qualifier(value = "currencyClientWebClient")
+	private final CurrencyClientWebClient currencyWebClient;
 	
 	@Autowired
 	public TransferServiceImpl(
 			TransferRepository transferRepository, 
 			AccountRepository accountRepository,
-			CurrencyClient currencyClient
+			CurrencyClientRestTemplate currencyClientRestTemplate,
+			CurrencyClientWebClient currencyWebClient
 	) {
 		this.transferRepository = transferRepository;
 		this.accountRepository = accountRepository;
-		this.currencyClient = currencyClient;
+		this.currencyClientRestTemplate = currencyClientRestTemplate;
+		this.currencyWebClient = currencyWebClient;
 	}
 
 	@Override
 	public TransferResponseModel save(TransferDTO transfer) {
-		Optional<AccountEntity> destinationAcountOptional = this.accountRepository.findById(transfer.getDestinationAccount());
+		Optional<AccountEntity> destinationAccountOptional = this.accountRepository.findById(transfer.getDestinationAccount());
 		Optional<AccountEntity> originAccountOptional = this.accountRepository.findById(transfer.getOriginAccount());
 		
-		if (destinationAcountOptional.isEmpty() || originAccountOptional.isEmpty()) {
-			throw new IllegalArgumentException(ExceptionMessages.ACCOUNT_NOT_FOUNF);
-		}
-		
-		BigDecimal cad = this.getCad(transfer.getCurrency());
-		BigDecimal ammountToTransfer = transfer.getAmount().divide(cad, 2, RoundingMode.HALF_UP);
-		AccountEntity destinationAccount = destinationAcountOptional.get();
-		AccountEntity originAccount = originAccountOptional.get();
+		if (destinationAccountOptional.isPresent() || originAccountOptional.isPresent()) {
+			BigDecimal cad = this.getCad(transfer.getCurrency());
+			BigDecimal amountToTransfer = transfer.getAmount().divide(cad, 2, RoundingMode.HALF_UP);
+			AccountEntity destinationAccount = destinationAccountOptional.get();
+			AccountEntity originAccount = originAccountOptional.get();
 
-		this.validBusinessRules(originAccount, ammountToTransfer);
-		
-		BigDecimal destinationBalance = destinationAccount.getBalance();
-		BigDecimal originBalance = originAccount.getBalance();
-		BigDecimal tax = this.getTax(ammountToTransfer);
-		
-		int originAttempts = originAccount.getAttempts();
-		originBalance = originBalance.subtract(tax);
-		
-		originAccount.setBalance(originBalance.subtract(ammountToTransfer));
-		destinationAccount.setBalance(destinationBalance.add(ammountToTransfer));
-		originAccount.setAttempts(originAttempts + 1);
-		
-		this.accountRepository.save(originAccount);
-		this.accountRepository.save(destinationAccount);
-		this.saveTransfer(transfer);
-		
-		return new TransferResponseModel(StatusTypes.OK, new ArrayList<>(), tax, cad);
+			this.validBusinessRules(originAccount, amountToTransfer);
+
+			BigDecimal destinationBalance = destinationAccount.getBalance();
+			BigDecimal originBalance = originAccount.getBalance();
+			BigDecimal tax = this.getTax(amountToTransfer);
+
+			int originAttempts = originAccount.getAttempts();
+			originBalance = originBalance.subtract(tax);
+
+			originAccount.setBalance(originBalance.subtract(amountToTransfer));
+			destinationAccount.setBalance(destinationBalance.add(amountToTransfer));
+			originAccount.setAttempts(originAttempts + 1);
+
+			this.accountRepository.save(originAccount);
+			this.accountRepository.save(destinationAccount);
+			this.saveTransfer(transfer);
+
+			return new TransferResponseModel(StatusTypes.OK, new ArrayList<>(), tax, cad);
+		}
+		throw new IllegalArgumentException(ExceptionMessages.ACCOUNT_NOT_FOUNF);
+
 	}
 
     private BigDecimal getCad(String currency) {
-    	if (this.currencyClient.getCurrency().hasBody()) {
-    	 	Map<String, BigDecimal> response  = this.currencyClient.getCurrency().getBody().getRates();
+		this.currencyWebClient.getCurrency().subscribe(r -> System.out.println(r));
+    	if (this.currencyClientRestTemplate.getCurrency().hasBody()) {
+    	 	Map<String, BigDecimal> response  = this.currencyClientRestTemplate.getCurrency().getBody().getRates();
         	if(response.containsKey(currency)) {
         		return response.get(currency);
         	}
@@ -109,18 +119,17 @@ public class TransferServiceImpl implements TransferService {
 	}
 	
 	private void validBusinessRules(AccountEntity origin, BigDecimal trasferAmmount) {
-		BigDecimal ammountToTransfer = trasferAmmount;
 		BigDecimal originBalance = origin.getBalance();
 		
 		if(origin.getAttempts() > MAX_ATTEMPTS) {
 			throw new LimitExceededException();
 		}
 		
-		if(ammountToTransfer.compareTo(originBalance) >= 1) {
+		if(trasferAmmount.compareTo(originBalance) >= 1) {
 			throw new InsufficientFundsException();
 		}
 		
-		if(ammountToTransfer.compareTo(new BigDecimal(NumberConstants.ZERO)) <= NumberConstants.ZERO) {
+		if(trasferAmmount.compareTo(new BigDecimal(NumberConstants.ZERO)) <= NumberConstants.ZERO) {
 			throw new IllegalArgumentException(ExceptionMessages.AMMOUNT_NOT_VALID);
 		}
 	}

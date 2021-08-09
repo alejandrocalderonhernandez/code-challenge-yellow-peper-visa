@@ -41,10 +41,10 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public AccountResponseModel finsBuAccountNumber(AccountDTO account) {
 		Optional<AccountEntity> accountOptional = this.repository.findById(account.getAccount());
-		if (accountOptional.isEmpty()) {
-			throw new IllegalArgumentException(ExceptionMessages.ACCOUNT_NOT_FOUNF);
+		if (accountOptional.isPresent()) {
+			return new AccountResponseModel(StatusTypes.OK, new ArrayList<>(), accountOptional.get().getBalance());
 		}
-		return new AccountResponseModel(StatusTypes.OK, new ArrayList<>(), accountOptional.get().getBalance());
+		throw new IllegalArgumentException(ExceptionMessages.ACCOUNT_NOT_FOUNF);
 	}
 
 }
