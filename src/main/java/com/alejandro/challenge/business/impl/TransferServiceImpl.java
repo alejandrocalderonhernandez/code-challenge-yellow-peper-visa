@@ -94,14 +94,21 @@ public class TransferServiceImpl implements TransferService {
 	}
 
     private BigDecimal getCad(String currency) {
-		this.currencyWebClient.getCurrency().subscribe(r -> System.out.println(r));
-    	if (this.currencyClientRestTemplate.getCurrency().hasBody()) {
-    	 	Map<String, BigDecimal> response  = this.currencyClientRestTemplate.getCurrency().getBody().getRates();
-        	if(response.containsKey(currency)) {
-        		return response.get(currency);
-        	}
-		}
-    	return BigDecimal.ZERO;
+		BigDecimal cad = this.currencyWebClient.getCurrency()
+				.filter(c -> c.getRates().containsKey(currency))
+				.map(c -> c.getRates().get(currency))
+				.block();
+
+		//No reactive way
+    	//if (this.currencyClientRestTemplate.getCurrency().hasBody()) {
+    	//	CurrencyDTO response =  this.currencyClientRestTemplate.getCurrency().getBody();
+    	// 	Map<String, BigDecimal> rates  = this.currencyClientRestTemplate.getCurrency().getBody().getRates();
+        //	if(rates.containsKey(currency)) {
+		//		System.out.println("Response no reactive: " + rates.get(currency));
+        //		return rates.get(currency);
+        //	}
+		//}
+    	return (cad !=  null) ? cad : BigDecimal.ZERO;
     }
     
 	private void saveTransfer(TransferDTO transfer) {

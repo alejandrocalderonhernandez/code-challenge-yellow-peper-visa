@@ -3751,3 +3751,831 @@ Caused by: java.io.FileNotFoundException: Could not open ServletContext resource
 2021-08-09 10:41:49.826 DEBUG 11365 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
 2021-08-09 10:41:49.829  INFO 11365 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-08-09 10:41:49.830  INFO 11365 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 17:38:04.567  INFO 6020 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 6020 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 17:38:04.569  INFO 6020 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 17:38:05.391  INFO 6020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 17:38:05.444  INFO 6020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2021-08-13 17:38:05.757  INFO 6020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 17:38:05.761  INFO 6020 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 17:38:05.761  INFO 6020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 17:38:05.808  INFO 6020 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 17:38:05.808  INFO 6020 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1198 ms
+2021-08-13 17:38:05.834  INFO 6020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 17:38:05.881  INFO 6020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 17:38:05.883  INFO 6020 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 17:38:05.943  INFO 6020 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 17:38:05.957  INFO 6020 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 17:38:06.002  INFO 6020 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 17:38:06.067  INFO 6020 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 17:38:06.256 DEBUG 6020 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:38:06.258 DEBUG 6020 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:38:06.258 DEBUG 6020 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:38:06.259 DEBUG 6020 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 17:38:06.260 DEBUG 6020 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 17:38:06.263 DEBUG 6020 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 17:38:06.265  INFO 6020 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 17:38:06.269  INFO 6020 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:38:06.646  WARN 6020 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 17:38:06.755  INFO 6020 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:38:07.150  INFO 6020 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 17:38:07.186  INFO 6020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 17:38:07.343  INFO 6020 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 3.044 seconds (JVM running for 3.46)
+2021-08-13 17:38:14.548  INFO 6020 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 17:38:14.548  INFO 6020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 17:38:14.550  INFO 6020 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 17:38:14.594 DEBUG 6020 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:38:14.597 TRACE 6020 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:38:14.606 DEBUG 6020 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:38:14.606 TRACE 6020 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-08-13 17:38:15.138 ERROR 6020 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/challenge] threw exception [Request processing failed; nested exception is java.util.NoSuchElementException: No value present] with root cause
+
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:148) ~[na:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:71) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:36) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$FastClassBySpringCGLIB$$ac6b6e8.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.6.jar:5.3.6]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$EnhancerBySpringCGLIB$$ea29c8b5.save(<generated>) ~[classes/:na]
+	at com.alejandro.challenge.resource.TransferController.save(TransferController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2021-08-13 17:39:19.073 DEBUG 6020 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:39:19.074 TRACE 6020 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:39:19.075 DEBUG 6020 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:39:19.076 TRACE 6020 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-08-13 17:39:19.438 ERROR 6020 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/challenge] threw exception [Request processing failed; nested exception is java.util.NoSuchElementException: No value present] with root cause
+
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:148) ~[na:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:71) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:36) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$FastClassBySpringCGLIB$$ac6b6e8.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.6.jar:5.3.6]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$EnhancerBySpringCGLIB$$ea29c8b5.save(<generated>) ~[classes/:na]
+	at com.alejandro.challenge.resource.TransferController.save(TransferController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2021-08-13 17:39:37.301 DEBUG 6020 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:39:37.301 TRACE 6020 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98989898]
+2021-08-13 17:40:43.394 DEBUG 6020 --- [http-nio-8080-exec-7] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:40:43.395 TRACE 6020 --- [http-nio-8080-exec-7] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 17:41:19.220 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:41:19.220 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:41:19.221 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:41:19.221 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 17:41:19.581 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 17:41:19.585  INFO 6020 --- [http-nio-8080-exec-9] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 17:41:19.586 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 17:41:19.586 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:41:19.586 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 17:41:19.587 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 17:41:19.587 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 17:41:19.587 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T17:41:19.579203]
+2021-08-13 17:41:19.589 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 17:41:19.589 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 17:41:19.590 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:41:19.591 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 17:41:19.591 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1524.07]
+2021-08-13 17:41:19.591 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 17:41:19.592 DEBUG 6020 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:41:19.593 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 17:41:19.593 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [48772.28799999999998863675632065906029311008751392364501953125]
+2021-08-13 17:41:19.593 TRACE 6020 --- [http-nio-8080-exec-9] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 17:43:58.166  INFO 6020 --- [http-nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name [0x000x000x000x090x000x000x000x130x000x000x000x090x00c0x00h0x00a0x00l0x00l0x00e0x00n0x00g0x00e0x000x000x00&0x00j0x00d0x00b0x00c0x00:0x00h0x0020x00:0x00t0x00c0x00p0x00:0x00/0x00/0x00l0x00o0x00c0x00a0x00l0x00h0x00o0x00s0x00t0x00:0x0080x0000x0080x0000x00/0x00c0x00h0x00a0x00l0x00l0x00e0x00n0x00g0x00e0x000x000x000x020x00S0x00A0x000x000x00]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2021-08-13 17:55:16.724  INFO 6020 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 17:55:16.726  INFO 6020 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:55:16.734  INFO 6020 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:55:16.734  INFO 6020 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 17:55:16.735 DEBUG 6020 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:55:16.740 DEBUG 6020 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:55:16.741 DEBUG 6020 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:55:16.745  INFO 6020 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 17:55:16.747  INFO 6020 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 17:55:19.848  INFO 8007 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 8007 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 17:55:19.850  INFO 8007 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 17:55:20.391  INFO 8007 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 17:55:20.432  INFO 8007 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
+2021-08-13 17:55:20.688  INFO 8007 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 17:55:20.692  INFO 8007 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 17:55:20.692  INFO 8007 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 17:55:20.728  INFO 8007 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 17:55:20.728  INFO 8007 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 848 ms
+2021-08-13 17:55:20.754  INFO 8007 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 17:55:20.802  INFO 8007 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 17:55:20.805  INFO 8007 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 17:55:20.880  INFO 8007 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 17:55:20.900  INFO 8007 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 17:55:20.944  INFO 8007 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 17:55:20.999  INFO 8007 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 17:55:21.202 DEBUG 8007 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:55:21.203 DEBUG 8007 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:55:21.204 DEBUG 8007 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:55:21.205 DEBUG 8007 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 17:55:21.206 DEBUG 8007 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 17:55:21.209 DEBUG 8007 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 17:55:21.211  INFO 8007 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 17:55:21.215  INFO 8007 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:55:21.571  WARN 8007 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 17:55:21.692  INFO 8007 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:55:22.091  INFO 8007 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 17:55:22.128  INFO 8007 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 17:55:22.281  INFO 8007 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.648 seconds (JVM running for 3.025)
+2021-08-13 17:55:25.742  INFO 8007 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 17:55:25.743  INFO 8007 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 17:55:25.744  INFO 8007 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 17:55:25.820 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:55:25.823 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:55:25.833 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:55:25.833 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 17:55:26.160 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 17:55:26.164  INFO 8007 --- [http-nio-8080-exec-2] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 17:55:26.167 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 17:55:26.167 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:55:26.167 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 17:55:26.168 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 17:55:26.168 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 17:55:26.168 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T17:55:26.157594]
+2021-08-13 17:55:26.170 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 17:55:26.171 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 17:55:26.172 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:55:26.173 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 17:55:26.173 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1524.07]
+2021-08-13 17:55:26.173 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 17:55:26.175 DEBUG 8007 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:55:26.175 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 17:55:26.175 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [48772.28799999999998863675632065906029311008751392364501953125]
+2021-08-13 17:55:26.176 TRACE 8007 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 17:55:36.237  INFO 8007 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 17:55:36.238  INFO 8007 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:55:36.241  INFO 8007 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:55:36.241  INFO 8007 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 17:55:36.241 DEBUG 8007 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:55:36.244 DEBUG 8007 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:55:36.245 DEBUG 8007 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:55:36.246  INFO 8007 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 17:55:36.248  INFO 8007 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 17:55:39.172  INFO 8372 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 8372 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 17:55:39.175  INFO 8372 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 17:55:39.812  INFO 8372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 17:55:39.853  INFO 8372 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
+2021-08-13 17:55:40.157  INFO 8372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 17:55:40.162  INFO 8372 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 17:55:40.162  INFO 8372 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 17:55:40.208  INFO 8372 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 17:55:40.208  INFO 8372 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1004 ms
+2021-08-13 17:55:40.240  INFO 8372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 17:55:40.301  INFO 8372 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 17:55:40.305  INFO 8372 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 17:55:40.383  INFO 8372 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 17:55:40.406  INFO 8372 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 17:55:40.467  INFO 8372 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 17:55:40.519  INFO 8372 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 17:55:40.733 DEBUG 8372 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:55:40.735 DEBUG 8372 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:55:40.735 DEBUG 8372 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:55:40.737 DEBUG 8372 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 17:55:40.738 DEBUG 8372 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 17:55:40.742 DEBUG 8372 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 17:55:40.744  INFO 8372 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 17:55:40.747  INFO 8372 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:55:41.155  WARN 8372 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 17:55:41.270  INFO 8372 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:55:41.556  INFO 8372 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 17:55:41.602  INFO 8372 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 17:55:41.754  INFO 8372 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.891 seconds (JVM running for 3.345)
+2021-08-13 17:55:44.942  INFO 8372 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 17:55:44.943  INFO 8372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 17:55:44.944  INFO 8372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 17:55:44.993 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:55:44.996 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:55:45.004 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:55:45.004 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 17:55:45.511 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 17:55:45.515  INFO 8372 --- [http-nio-8080-exec-2] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 17:55:45.519 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 17:55:45.519 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:55:45.520 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 17:55:45.520 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 17:55:45.520 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 17:55:45.520 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T17:55:45.509156]
+2021-08-13 17:55:45.522 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 17:55:45.522 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 17:55:45.523 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:55:45.524 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 17:55:45.524 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1524.07]
+2021-08-13 17:55:45.524 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 17:55:45.525 DEBUG 8372 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:55:45.526 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 17:55:45.526 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [48772.28799999999998863675632065906029311008751392364501953125]
+2021-08-13 17:55:45.526 TRACE 8372 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 17:58:34.603  INFO 8372 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 17:58:34.604  INFO 8372 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:58:34.607  INFO 8372 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:58:34.607  INFO 8372 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 17:58:34.607 DEBUG 8372 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:58:34.610 DEBUG 8372 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:58:34.611 DEBUG 8372 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:58:34.613  INFO 8372 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 17:58:34.615  INFO 8372 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 17:58:36.999  INFO 8967 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 8967 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 17:58:37.001  INFO 8967 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 17:58:37.558  INFO 8967 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 17:58:37.602  INFO 8967 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+2021-08-13 17:58:37.836  INFO 8967 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 17:58:37.842  INFO 8967 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 17:58:37.842  INFO 8967 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 17:58:37.882  INFO 8967 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 17:58:37.882  INFO 8967 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 850 ms
+2021-08-13 17:58:37.906  INFO 8967 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 17:58:37.948  INFO 8967 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 17:58:37.951  INFO 8967 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 17:58:38.013  INFO 8967 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 17:58:38.029  INFO 8967 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 17:58:38.073  INFO 8967 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 17:58:38.134  INFO 8967 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 17:58:38.332 DEBUG 8967 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 17:58:38.333 DEBUG 8967 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 17:58:38.334 DEBUG 8967 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 17:58:38.335 DEBUG 8967 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 17:58:38.336 DEBUG 8967 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 17:58:38.340 DEBUG 8967 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 17:58:38.341  INFO 8967 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 17:58:38.345  INFO 8967 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 17:58:38.711  WARN 8967 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 17:58:38.808  INFO 8967 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 17:58:39.104  INFO 8967 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 17:58:39.137  INFO 8967 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 17:58:39.266  INFO 8967 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.446 seconds (JVM running for 2.808)
+2021-08-13 17:58:50.753  INFO 8967 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 17:58:50.753  INFO 8967 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 17:58:50.754  INFO 8967 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 17:58:50.806 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:58:50.808 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:58:50.817 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 17:58:50.817 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 17:58:51.225 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 17:58:51.229  INFO 8967 --- [http-nio-8080-exec-1] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 17:58:51.232 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 17:58:51.233 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 17:58:51.233 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 17:58:51.233 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 17:58:51.233 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 17:58:51.233 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T17:58:51.223303]
+2021-08-13 17:58:51.235 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 17:58:51.235 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 17:58:51.236 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:58:51.237 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 17:58:51.237 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1524.07]
+2021-08-13 17:58:51.237 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 17:58:51.239 DEBUG 8967 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 17:58:51.239 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 17:58:51.239 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [48772.28799999999998863675632065906029311008751392364501953125]
+2021-08-13 17:58:51.239 TRACE 8967 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:01:06.368 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:01:06.369 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:01:06.369 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:01:06.370 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:01:06.726 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:01:06.727  INFO 8967 --- [http-nio-8080-exec-5] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:01:06.728 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:01:06.728 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:01:06.728 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:01:06.728 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:01:06.729 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [EUR]
+2021-08-13 18:01:06.729 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:01:06.726510]
+2021-08-13 18:01:06.729 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:01:06.729 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [2]
+2021-08-13 18:01:06.731 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:01:06.731 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:01:06.731 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [25524.48]
+2021-08-13 18:01:06.731 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:01:06.732 DEBUG 8967 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:01:06.732 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-08-13 18:01:06.732 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [19971.79799999999973354192217556146715651266276836395263671875]
+2021-08-13 18:01:06.732 TRACE 8967 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:02:15.877  INFO 8967 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 18:02:15.879  INFO 8967 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:02:15.884  INFO 8967 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:02:15.885  INFO 8967 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 18:02:15.885 DEBUG 8967 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:02:15.888 DEBUG 8967 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:02:15.888 DEBUG 8967 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:02:15.891  INFO 8967 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 18:02:15.893  INFO 8967 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 18:02:18.005  INFO 9574 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 9574 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 18:02:18.007  INFO 9574 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 18:02:18.518  INFO 9574 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 18:02:18.563  INFO 9574 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 2 JPA repository interfaces.
+2021-08-13 18:02:18.813  INFO 9574 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 18:02:18.817  INFO 9574 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 18:02:18.818  INFO 9574 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 18:02:18.860  INFO 9574 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 18:02:18.861  INFO 9574 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 829 ms
+2021-08-13 18:02:18.888  INFO 9574 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 18:02:18.936  INFO 9574 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 18:02:18.939  INFO 9574 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 18:02:19.011  INFO 9574 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 18:02:19.030  INFO 9574 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 18:02:19.086  INFO 9574 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 18:02:19.140  INFO 9574 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 18:02:19.353 DEBUG 9574 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:02:19.354 DEBUG 9574 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:02:19.355 DEBUG 9574 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:02:19.356 DEBUG 9574 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 18:02:19.357 DEBUG 9574 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 18:02:19.361 DEBUG 9574 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 18:02:19.363  INFO 9574 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 18:02:19.366  INFO 9574 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:02:19.730  WARN 9574 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 18:02:19.827  INFO 9574 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:02:20.095  INFO 9574 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 18:02:20.127  INFO 9574 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 18:02:20.255  INFO 9574 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.473 seconds (JVM running for 2.799)
+2021-08-13 18:02:35.822  INFO 9574 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 18:02:35.822  INFO 9574 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 18:02:35.823  INFO 9574 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 18:02:35.894 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:02:35.897 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:02:35.906 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:02:35.907 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:02:36.346 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:02:36.351  INFO 9574 --- [http-nio-8080-exec-2] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:02:36.354 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:02:36.355 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:02:36.355 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:02:36.355 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:02:36.355 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [EUR]
+2021-08-13 18:02:36.355 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:02:36.344765]
+2021-08-13 18:02:36.357 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:02:36.358 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 18:02:36.358 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:02:36.359 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:02:36.359 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [24500.97]
+2021-08-13 18:02:36.359 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:02:36.361 DEBUG 9574 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:02:36.361 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 18:02:36.361 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [21200.00799999999973354192217556146715651266276836395263671875]
+2021-08-13 18:02:36.361 TRACE 9574 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:05:11.090  INFO 9574 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 18:05:11.090  INFO 9574 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:05:11.093  INFO 9574 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:05:11.094  INFO 9574 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 18:05:11.094 DEBUG 9574 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:05:11.097 DEBUG 9574 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:05:11.097 DEBUG 9574 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:05:11.099  INFO 9574 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 18:05:11.101  INFO 9574 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 18:05:13.664  INFO 10136 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 10136 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 18:05:13.666  INFO 10136 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 18:05:14.304  INFO 10136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 18:05:14.368  INFO 10136 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2021-08-13 18:05:14.700  INFO 10136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 18:05:14.706  INFO 10136 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 18:05:14.706  INFO 10136 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 18:05:14.761  INFO 10136 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 18:05:14.761  INFO 10136 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1058 ms
+2021-08-13 18:05:14.796  INFO 10136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 18:05:14.841  INFO 10136 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 18:05:14.844  INFO 10136 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 18:05:14.912  INFO 10136 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 18:05:14.929  INFO 10136 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 18:05:14.974  INFO 10136 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 18:05:15.049  INFO 10136 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 18:05:15.267 DEBUG 10136 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:05:15.268 DEBUG 10136 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:05:15.268 DEBUG 10136 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:05:15.269 DEBUG 10136 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 18:05:15.271 DEBUG 10136 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 18:05:15.275 DEBUG 10136 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 18:05:15.278  INFO 10136 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 18:05:15.281  INFO 10136 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:05:15.647  WARN 10136 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 18:05:15.749  INFO 10136 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:05:16.034  INFO 10136 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 18:05:16.085  INFO 10136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 18:05:16.232  INFO 10136 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.798 seconds (JVM running for 3.153)
+2021-08-13 18:05:20.833  INFO 10136 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 18:05:20.834  INFO 10136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 18:05:20.835  INFO 10136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 18:05:20.905 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:05:20.908 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:05:20.918 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:05:20.918 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:05:21.521 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:05:21.525  INFO 10136 --- [http-nio-8080-exec-1] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:05:21.530 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:05:21.530 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:05:21.530 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:05:21.530 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:05:21.530 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [EUR]
+2021-08-13 18:05:21.530 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:05:21.518737]
+2021-08-13 18:05:21.532 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:05:21.533 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 18:05:21.533 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:05:21.534 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:05:21.534 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [24500.97]
+2021-08-13 18:05:21.534 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:05:21.536 DEBUG 10136 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:05:21.536 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 18:05:21.536 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [21200.00799999999973354192217556146715651266276836395263671875]
+2021-08-13 18:05:21.536 TRACE 10136 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:06:22.662  INFO 10136 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 18:06:22.662  INFO 10136 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:06:22.667  INFO 10136 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:06:22.667  INFO 10136 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 18:06:22.667 DEBUG 10136 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:06:22.670 DEBUG 10136 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:06:22.671 DEBUG 10136 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:06:22.673  INFO 10136 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 18:06:22.675  INFO 10136 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 18:06:25.119  INFO 10544 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 10544 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 18:06:25.121  INFO 10544 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 18:06:25.748  INFO 10544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 18:06:25.809  INFO 10544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2021-08-13 18:06:26.079  INFO 10544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 18:06:26.083  INFO 10544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 18:06:26.083  INFO 10544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 18:06:26.119  INFO 10544 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 18:06:26.120  INFO 10544 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 955 ms
+2021-08-13 18:06:26.149  INFO 10544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 18:06:26.196  INFO 10544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 18:06:26.199  INFO 10544 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 18:06:26.268  INFO 10544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 18:06:26.286  INFO 10544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 18:06:26.333  INFO 10544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 18:06:26.397  INFO 10544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 18:06:26.611 DEBUG 10544 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:06:26.612 DEBUG 10544 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:06:26.613 DEBUG 10544 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:06:26.614 DEBUG 10544 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 18:06:26.615 DEBUG 10544 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 18:06:26.618 DEBUG 10544 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 18:06:26.620  INFO 10544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 18:06:26.624  INFO 10544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:06:27.017  WARN 10544 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 18:06:27.126  INFO 10544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:06:27.462  INFO 10544 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 18:06:27.513  INFO 10544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 18:06:27.694  INFO 10544 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.806 seconds (JVM running for 3.177)
+2021-08-13 18:06:30.823  INFO 10544 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 18:06:30.823  INFO 10544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 18:06:30.825  INFO 10544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 18:06:30.884 DEBUG 10544 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:06:30.886 TRACE 10544 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:06:30.896 DEBUG 10544 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:06:30.896 TRACE 10544 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:06:31.011 ERROR 10544 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/challenge] threw exception [Request processing failed; nested exception is java.lang.ArithmeticException: / by zero] with root cause
+
+java.lang.ArithmeticException: / by zero
+	at java.base/java.math.BigDecimal.divideAndRound(BigDecimal.java:4579) ~[na:na]
+	at java.base/java.math.BigDecimal.divide(BigDecimal.java:5671) ~[na:na]
+	at java.base/java.math.BigDecimal.divide(BigDecimal.java:1592) ~[na:na]
+	at java.base/java.math.BigDecimal.divide(BigDecimal.java:1622) ~[na:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:69) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl.save(TransferServiceImpl.java:36) ~[classes/:na]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$FastClassBySpringCGLIB$$ac6b6e8.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:779) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750) ~[spring-aop-5.3.6.jar:5.3.6]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692) ~[spring-aop-5.3.6.jar:5.3.6]
+	at com.alejandro.challenge.business.impl.TransferServiceImpl$$EnhancerBySpringCGLIB$$679c41b3.save(<generated>) ~[classes/:na]
+	at com.alejandro.challenge.resource.TransferController.save(TransferController.java:23) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.6.jar:5.3.6]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.45.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.6.jar:5.3.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.45.jar:9.0.45]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2021-08-13 18:14:34.384  INFO 10544 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 18:14:34.384  INFO 10544 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:14:34.387  INFO 10544 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:14:34.387  INFO 10544 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 18:14:34.388 DEBUG 10544 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:14:34.392 DEBUG 10544 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:14:34.392 DEBUG 10544 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:14:34.394  INFO 10544 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 18:14:34.396  INFO 10544 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 18:14:37.168  INFO 11561 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 11561 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 18:14:37.169  INFO 11561 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 18:14:37.733  INFO 11561 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 18:14:37.781  INFO 11561 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2021-08-13 18:14:38.038  INFO 11561 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 18:14:38.042  INFO 11561 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 18:14:38.043  INFO 11561 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 18:14:38.082  INFO 11561 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 18:14:38.083  INFO 11561 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 883 ms
+2021-08-13 18:14:38.106  INFO 11561 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 18:14:38.148  INFO 11561 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 18:14:38.150  INFO 11561 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 18:14:38.215  INFO 11561 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 18:14:38.231  INFO 11561 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 18:14:38.273  INFO 11561 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 18:14:38.328  INFO 11561 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 18:14:38.516 DEBUG 11561 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:14:38.517 DEBUG 11561 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:14:38.518 DEBUG 11561 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:14:38.519 DEBUG 11561 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 18:14:38.520 DEBUG 11561 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 18:14:38.523 DEBUG 11561 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 18:14:38.525  INFO 11561 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 18:14:38.528  INFO 11561 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:14:38.876  WARN 11561 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 18:14:38.974  INFO 11561 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:14:39.299  INFO 11561 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 18:14:39.347  INFO 11561 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 18:14:39.488  INFO 11561 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.554 seconds (JVM running for 2.927)
+2021-08-13 18:16:46.583  INFO 11561 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 18:16:46.584  INFO 11561 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 18:16:46.585  INFO 11561 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-08-13 18:16:46.640 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:16:46.642 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:16:46.652 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:16:46.652 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:16:47.670 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:16:47.674  INFO 11561 --- [http-nio-8080-exec-1] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:16:47.678 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:16:47.678 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:16:47.678 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:16:47.678 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:16:47.678 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [EUR]
+2021-08-13 18:16:47.679 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:16:47.668283]
+2021-08-13 18:16:47.680 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:16:47.681 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 18:16:47.681 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:16:47.682 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:16:47.683 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [24500.97]
+2021-08-13 18:16:47.683 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:16:47.684 DEBUG 11561 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:16:47.685 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 18:16:47.685 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [21200.00799999999973354192217556146715651266276836395263671875]
+2021-08-13 18:16:47.685 TRACE 11561 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:17:58.519 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:17:58.520 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:17:58.520 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:17:58.520 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:17:59.090 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:17:59.091  INFO 11561 --- [http-nio-8080-exec-5] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:17:59.093 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:17:59.093 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:17:59.093 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:17:59.093 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:17:59.094 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 18:17:59.094 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:17:59.090396]
+2021-08-13 18:17:59.094 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:17:59.094 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [2]
+2021-08-13 18:17:59.096 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:17:59.096 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:17:59.096 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [25524.48]
+2021-08-13 18:17:59.096 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:17:59.097 DEBUG 11561 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:17:59.097 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2021-08-13 18:17:59.097 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [19971.79799999999998863675632065906029311008751392364501953125]
+2021-08-13 18:17:59.097 TRACE 11561 --- [http-nio-8080-exec-5] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]
+2021-08-13 18:18:11.304 DEBUG 11561 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:18:11.305 TRACE 11561 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:18:11.306 DEBUG 11561 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:18:11.306 TRACE 11561 --- [http-nio-8080-exec-6] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:22:09.979  INFO 11561 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-08-13 18:22:09.981  INFO 11561 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:22:09.986  INFO 11561 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:22:09.986  INFO 11561 --- [SpringContextShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-08-13 18:22:09.987 DEBUG 11561 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:22:09.990 DEBUG 11561 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:22:09.990 DEBUG 11561 --- [SpringContextShutdownHook] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:22:09.992  INFO 11561 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-08-13 18:22:09.993  INFO 11561 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-08-13 18:22:12.288  INFO 12595 --- [main] c.a.challenge.CodeChallengeApplication   : Starting CodeChallengeApplication using Java 11.0.11 on alejandro-IdeaPad with PID 12595 (/home/alejandro/Projects/Java/code-challenge-yellow-peper-visa/target/classes started by alejandro in /home/alejandro/Projects/Java/code-challenge-yellow-peper-visa)
+2021-08-13 18:22:12.291  INFO 12595 --- [main] c.a.challenge.CodeChallengeApplication   : No active profile set, falling back to default profiles: default
+2021-08-13 18:22:12.799  INFO 12595 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-08-13 18:22:12.845  INFO 12595 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 2 JPA repository interfaces.
+2021-08-13 18:22:13.121  INFO 12595 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-08-13 18:22:13.125  INFO 12595 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-08-13 18:22:13.125  INFO 12595 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-08-13 18:22:13.158  INFO 12595 --- [main] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring embedded WebApplicationContext
+2021-08-13 18:22:13.158  INFO 12595 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 835 ms
+2021-08-13 18:22:13.181  INFO 12595 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-08-13 18:22:13.223  INFO 12595 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-08-13 18:22:13.226  INFO 12595 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:challenge'
+2021-08-13 18:22:13.287  INFO 12595 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-08-13 18:22:13.303  INFO 12595 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2021-08-13 18:22:13.344  INFO 12595 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-08-13 18:22:13.399  INFO 12595 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-08-13 18:22:13.597 DEBUG 12595 --- [main] org.hibernate.SQL                        : drop table if exists account CASCADE 
+2021-08-13 18:22:13.598 DEBUG 12595 --- [main] org.hibernate.SQL                        : drop table if exists transfer CASCADE 
+2021-08-13 18:22:13.598 DEBUG 12595 --- [main] org.hibernate.SQL                        : drop sequence if exists hibernate_sequence
+2021-08-13 18:22:13.599 DEBUG 12595 --- [main] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2021-08-13 18:22:13.600 DEBUG 12595 --- [main] org.hibernate.SQL                        : create table account (account varchar(255) not null, attempts integer not null, account_balance decimal(19,2) not null, primary key (account))
+2021-08-13 18:22:13.603 DEBUG 12595 --- [main] org.hibernate.SQL                        : create table transfer (id bigint not null, destination_account varchar(255) not null, origin_account varchar(255) not null, amount decimal(19,2) not null, currency varchar(255) not null, date timestamp not null, description varchar(255) not null, primary key (id))
+2021-08-13 18:22:13.605  INFO 12595 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-08-13 18:22:13.609  INFO 12595 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-08-13 18:22:13.943  WARN 12595 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-08-13 18:22:14.037  INFO 12595 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-08-13 18:22:14.290  INFO 12595 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-08-13 18:22:14.322  INFO 12595 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/challenge'
+2021-08-13 18:22:14.448  INFO 12595 --- [main] c.a.challenge.CodeChallengeApplication   : Started CodeChallengeApplication in 2.369 seconds (JVM running for 2.746)
+2021-08-13 18:22:43.939  INFO 12595 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[localhost].[/challenge]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-08-13 18:22:43.940  INFO 12595 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-08-13 18:22:43.942  INFO 12595 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-08-13 18:22:43.992 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:22:43.994 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:22:44.002 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select accountent0_.account as account1_0_0_, accountent0_.attempts as attempts2_0_0_, accountent0_.account_balance as account_3_0_0_ from account accountent0_ where accountent0_.account=?
+2021-08-13 18:22:44.003 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [80907651]
+2021-08-13 18:22:44.457 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : call next value for hibernate_sequence
+2021-08-13 18:22:44.462  INFO 12595 --- [http-nio-8080-exec-2] c.a.c.business.impl.TransferServiceImpl  : Transaction saved
+2021-08-13 18:22:44.465 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into transfer (destination_account, origin_account, amount, currency, date, description, id) values (?, ?, ?, ?, ?, ?, ?)
+2021-08-13 18:22:44.465 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [98765432]
+2021-08-13 18:22:44.465 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [80907651]
+2021-08-13 18:22:44.465 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [NUMERIC] - [24000.41]
+2021-08-13 18:22:44.466 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [MXN]
+2021-08-13 18:22:44.466 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [TIMESTAMP] - [2021-08-13T18:22:44.455637]
+2021-08-13 18:22:44.467 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Hey dude! I am sending you the money you loaned to me last week.]
+2021-08-13 18:22:44.468 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+2021-08-13 18:22:44.469 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:22:44.469 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [0]
+2021-08-13 18:22:44.470 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [1524.07]
+2021-08-13 18:22:44.470 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [98765432]
+2021-08-13 18:22:44.471 DEBUG 12595 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : update account set attempts=?, account_balance=? where account=?
+2021-08-13 18:22:44.471 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2021-08-13 18:22:44.472 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [NUMERIC] - [48772.28799999999998863675632065906029311008751392364501953125]
+2021-08-13 18:22:44.472 TRACE 12595 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [80907651]

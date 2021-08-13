@@ -8,18 +8,18 @@ import com.alejandro.challenge.util.JsonUtil;
 
 public class CurrencyDTO implements Serializable {
 
-	private String bas;
+	private String base;
 	private Map<String, BigDecimal> rates;
 	
 	public CurrencyDTO() {}
 	
-	public String getBas() {
-		return bas;
+	public String getBase() {
+		return base;
 	}
 
 
-	public void setBas(String bas) {
-		this.bas = bas;
+	public void setBase(String base) {
+		this.base = base;
 	}
 
 
